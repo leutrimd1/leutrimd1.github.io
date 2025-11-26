@@ -71,7 +71,7 @@ export default function Projects() {
                     <ProjectCard
                         image={webRTCGif}
                         chips={webRTCChips}
-                        description={"WIP --- \n a chat app using webRTC to connect peers directly after discovery. Planning to host the signaling server in my k3s cluster have github pages server the react native dist at chat.leutrimdema.com... currently does not have a demo link"}
+                        description={"WIP --- \n a chat app using webRTC to connect peers directly after discovery. Planning to host the signaling server in my k3s cluster and have github pages server the react native dist at chat.leutrimdema.com... currently does not have a demo link"}
                         repoLink={webRTCRepoLink}
                         demoLink={webRTCDemoLink}
                     />
