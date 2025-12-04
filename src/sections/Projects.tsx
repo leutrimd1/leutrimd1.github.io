@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Chip, Grid, Typography } from "@mui/material"
-import todoGif from '/Todo-list-gif-demo.gif';
+import todoGif from '/todo-list-demo.gif';
 import webRTCGif from '/WebRTC-Chat.gif';
 
 const Container = styled("div")({
@@ -50,9 +50,10 @@ const todoAppChips = ["Kubernetes", "React/Redux", "NodeJs API Server"];
 const todoAppRepoLink = "https://github.com/LeutrimD1/todo-page";
 const todoAppDemoLink = "https://todos.leutrimdema.com";
 
+const webRTCDesciption = "A chat app using webRTC to connect peers directly after discovery which is done via a signaling server that I host on my k3s cluster. I use GitHub pages to serve the client to users.";
 const webRTCChips = ["React Native", "WebRTC", "Fleck C# web socket signaling server"];
 const webRTCRepoLink = "https://github.com/LeutrimD1/webrtc-client";
-const webRTCDemoLink = "";
+const webRTCDemoLink = "https://webrtc-client.leutrimdema.com";
 
 export default function Projects() {
     return (
@@ -71,7 +72,7 @@ export default function Projects() {
                     <ProjectCard
                         image={webRTCGif}
                         chips={webRTCChips}
-                        description={"WIP --- \n a chat app using webRTC to connect peers directly after discovery. Planning to host the signaling server in my k3s cluster and have github pages server the react native dist at chat.leutrimdema.com... currently does not have a demo link"}
+                        description={webRTCDesciption}
                         repoLink={webRTCRepoLink}
                         demoLink={webRTCDemoLink}
                     />
