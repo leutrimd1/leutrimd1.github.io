@@ -1,5 +1,8 @@
 import styled from "@emotion/styled"
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Chip, Grid, Typography } from "@mui/material"
+import { Box, Grid, Typography } from "@mui/material"
+import { BrutalistCard } from "../components/BrutalistCard"
+import { BrutalistButton } from "../components/BrutalistButton"
+import { BrutalistChip } from "../components/BrutalistChip"
 import todoGif from '/todo-list-demo.gif';
 import webRTCGif from '/WebRTC-Chat.gif';
 
@@ -7,41 +10,51 @@ const Container = styled("div")({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
-    gap: "1rem" 
+    gap: "2rem"
 });
 
 
-const ProjectCard = ({ image, chips, description, repoLink, demoLink }: {
+const ProjectCard = ({ image, chips, description, repoLink, demoLink, accentColor }: {
     image: any,
     chips: Array<string>,
     description: string,
     repoLink: string,
-    demoLink: string
+    demoLink: string,
+    accentColor: string
 }) => {
     return (
-        <Card id="projects">
-            <CardMedia
-                component={"img"}
-                image={image} />
-            <CardContent>
-                <Typography sx={{ mb: 2 }}>
+        <BrutalistCard id="projects" accentcolor={accentColor} accentposition="top" sx={{ padding: 0, overflow: 'hidden' }}>
+            <Box
+                component="img"
+                src={image}
+                alt="Project demo"
+                sx={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    border: 'none',
+                    borderBottom: '5px solid #0A0A0A'
+                }}
+            />
+            <Box sx={{ padding: '24px' }}>
+                <Typography variant="body1" sx={{ mb: 3 }}>
                     {description}
                 </Typography>
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
                     {chips.map((chip: string, index: number) => (
-                        <Chip key={index} label={chip} />
+                        <BrutalistChip key={index} label={chip} />
                     ))}
                 </Box>
-            </CardContent>
-            <CardActions>
-                <Button href={repoLink} target="_blank" >
-                    Go to Repo
-                </Button>
-                <Button href={demoLink} target="_blank" >
-                    Go to live demo
-                </Button>
-            </CardActions>
-        </Card>
+                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                    <BrutalistButton href={repoLink} target="_blank" color="primary">
+                        REPO →
+                    </BrutalistButton>
+                    <BrutalistButton href={demoLink} target="_blank" color="secondary">
+                        LIVE DEMO →
+                    </BrutalistButton>
+                </Box>
+            </Box>
+        </BrutalistCard>
     );
 }
 
@@ -66,6 +79,7 @@ export default function Projects() {
                         description={todoAppDescription}
                         repoLink={todoAppRepoLink}
                         demoLink={todoAppDemoLink}
+                        accentColor="#00FF94"
                     />
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
@@ -75,6 +89,7 @@ export default function Projects() {
                         description={webRTCDesciption}
                         repoLink={webRTCRepoLink}
                         demoLink={webRTCDemoLink}
+                        accentColor="#FF6B35"
                     />
                 </Grid>
             </Grid>
